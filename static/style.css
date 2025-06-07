@@ -1,0 +1,151 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(120deg, #643173, #D7A9E3, #F2A480, #F9E589);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85); /* semi-transparant wit */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+#timer {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 2rem 0;
+    color: #4CAF50;
+}
+
+.compliment-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.compliment {
+  position: absolute;
+  top: -20px;
+  font-size: 1rem;
+  color: #fff;
+  animation-name: fall;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.bounce {
+  animation: bounce 0.6s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fall {
+  0% {
+    top: -30px;
+    opacity: 0;
+    transform: translateX(0);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    top: 90vh;
+    opacity: 1;
+    transform: translateX(10px);
+  }
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-12px); }
+  50%  { transform: translateY(6px); }
+  75%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+#flowerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 4;
+}
+.flower {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0;
+  transform: scale(0.2);
+  transition: opacity 1.5s ease-in-out, transform 0.5s ease-in;
+}
+.flower.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+.zen-message {
+  margin-top: 30px;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  color: #000;
+}
+.zen-message.show {
+  opacity: 1;
+}
+.hidden {
+  display: none;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
